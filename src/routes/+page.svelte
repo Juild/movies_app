@@ -2,7 +2,17 @@
 	import Table from "./Table.svelte";
     let movies: string = "";
 </script>
-<h1>Welcome to Your Lifetime</h1>
-<p>Search for a day</p>
-<input bind:value={movies}  placeholder="Search for any movie you want here!"/>
-<Table></Table>
+<h1>The Tail End</h1>
+<p>How many weeks do you have left?</p>
+<input bind:value={movies}  placeholder="Input your age"/>
+<Table ></Table>
+<style>
+    h1, p {
+        color: white;
+    }
+    input {
+        border-radius: 1cm;
+        padding: 0.5em;
+    }
+
+</style>

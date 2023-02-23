@@ -9,39 +9,43 @@
         console.log(i);
         weeks.push({ id: 'week' + i, content: 'Some content' });
     }
-    console.log(weeks);
 
 	onMount(() => (paragraph.textContent = 'This is a programatically generated paragraph'));
 </script>
 
 <div class="lifetime-grid">
     {#each weeks as { id, content }, i}
-	    <div {id}, class="weeks"></div>
+	    <div id={id} class="weeks"></div>
     {/each}
 </div>
 
 <style>
     .lifetime-grid {
-        /* height: 1000cap;
-        width: 1000cap; */
-        /* position: relative;
-        top: 30px;
-        bottom: 30px;
-        left: 10px;
-        right: 30px; */
         display: grid;
-        grid-template-columns: repeat(100, 0.1em) ;
-        grid-gap: 0.5em;
-        text-align: inherit;
-        /* padding: ; */
+        grid-template-columns: repeat(100, 0.5em) ;
+        grid-gap: 0.5em 0.5em;
+        padding: 2em;
+        justify-content: center;
+
+
     }
     .weeks {
-        background-color: aqua;
-        width: 0.4em;
-        height: 0.4em;
-        border-radius: 10%;
-        border-color: blue;
+        /*  Background color not passed#08a4ff */
+        background-color: #ee2e5d; /* Background color passed */
+        width: 0.75em;
+        height: 0.75em;
+        border-radius: 25%;
+        border-width: 0.05em;
         border-style: solid;
-        border-width: 0.07em;
+        transition: all 1s ease-out ;
+
+
+
+    }
+    .weeks:hover {
+        transform: scale(5);
+        border-color: #940b2d;
+        background-color: rgb(255, 230, 0);
+        transition: all 50ms ;
     }
 </style>
