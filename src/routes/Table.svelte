@@ -6,27 +6,21 @@
 	let weeksInYear = 80 * 12 * 4;
 
     for (let i = 1; i < weeksInYear; i++) {
-        console.log(i);
         weeks.push({ id: 'week' + i, content: 'Some content' });
     }
 
-	onMount(() => (paragraph.textContent = 'This is a programatically generated paragraph'));
 </script>
-
 <div class="lifetime-grid">
     {#each weeks as { id, content }, i}
 	    <div id={id} class="weeks"></div>
     {/each}
 </div>
-
 <style>
     .lifetime-grid {
         display: grid;
-        grid-template-columns: repeat(100, 0.5em) ;
-        grid-gap: 0.5em 0.5em;
+        grid-template-columns: repeat(auto-fit, 1em) ;
         padding: 2em;
         justify-content: center;
-
 
     }
     .weeks {
@@ -34,7 +28,7 @@
         background-color: #ee2e5d; /* Background color passed */
         width: 0.75em;
         height: 0.75em;
-        border-radius: 25%;
+        border-radius: 89%;
         border-width: 0.05em;
         border-style: solid;
         transition: all 1s ease-out ;
@@ -48,4 +42,5 @@
         background-color: rgb(255, 230, 0);
         transition: all 50ms ;
     }
+
 </style>
