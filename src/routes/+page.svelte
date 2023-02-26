@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Table from "./Table.svelte";
-    let movies: string = "";
+   let age: string = "";
 </script>
 <h1>The Tail End</h1>
 <p>How many weeks do you have left?</p>
-<input bind:value={movies}  placeholder="Input your age"/>
-<Table ></Table>
+<input bind:value={age}  placeholder="Input your age"/>
+<Table age={age}></Table>
 <style>
     h1, p {
         color: white;
