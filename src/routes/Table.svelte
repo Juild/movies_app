@@ -1,25 +1,18 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+   
     export let age: string = '0';
-    let paragraph: HTMLElement;
     let weeks: object[] = [];
-	$: weeks = [];
-	let weeksInYear: number = 90 * 12 * 4;
-    let weeksLived: number = parseInt(age) * 12 * 4;
-    console.log(age)
+	let weeksInYear: number = 85 * 12 * 4;
     for (let i = 1; i < weeksInYear; i++) {
-        if (i < weeksLived){
-            weeks.push({ id: 'week', css_class: 'selected' });
-        }else{
-            weeks.push({ id: 'week', css_class: 'not-selected' });
-        }
+        weeks.push({id: i});
     }
-    
+    $:  weeksLived  = isNaN(parseInt(age) * 12 * 4) ? 0 : parseInt(age) * 12 * 4 ;
+
 
 </script>
 <div class="lifetime-grid">
-    {#each weeks as { id, css_class }, i}
-	    <div id={id} class={css_class}></div>
+    {#each weeks as weeks (weeks.id)}
+	    <div class={weeks.id < weeksLived ? 'selected' : 'not-selected' }></div>
     {/each}
 </div>
 <style>
@@ -30,7 +23,7 @@
         justify-content: center;
 
     }
-    #week {
+    .not-selected, .selected {
         /*  Background color not passed#08a4ff */
         background-color: #ee2e5d; /* Background color passed */
         width: 0.75em;
@@ -40,10 +33,11 @@
         border-style: solid;
         transition: all 1s ease-out ;
     }
-    #week, .selected {
-        background-color: green;
+    .selected {
+        /*  Background color not passed#08a4ff */
+        background-color: #deee2e; /* Background color passed */
     }
-    .week:hover {
+    .not-selected:hover, .selected:hover {
         transform: scale(5);
         border-color: #940b2d;
         background-color: rgb(255, 230, 0);
