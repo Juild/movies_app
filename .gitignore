@@ -8,3 +8,14 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.prettier*
+.firebase
+.eslint*
+.firebase*
+firebase.json
+package*
+playwright*
+svelte.config.js
+tsconfig*
+vite.config*
+.npmrc
